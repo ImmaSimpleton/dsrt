@@ -1,0 +1,13 @@
+[Unit]
+Description=Makes airodump-ng start on boot
+After=network.target kismet.service
+
+[Service]
+User=root
+Group=root
+ExecStart=/bin/airodump.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

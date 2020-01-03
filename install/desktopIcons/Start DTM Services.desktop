@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Start DTM Services
+Comment=Starts all DTM Services
+Exec=startdtm.sh
+Icon=media-playback-start
+Path=
+Terminal=true
+StartupNotify=true
