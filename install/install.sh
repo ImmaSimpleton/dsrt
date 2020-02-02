@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 #This should install the DSRT on your device.
-#echo done
 #
 echo Installing Kismet
 wget -O - https://www.kismetwireless.net/repos/kismet-release.gpg.key | sudo apt-key add -
@@ -11,10 +10,12 @@ apt install kismet -y
 echo done
 echo ===========================
 echo Installing gpsd
+echo
 apt install gpsd gpsd-clients -y
 echo done
 echo ===========================
 echo Installing Probequest
+echo
 pip3 install --upgrade probequest
 echo done
 echo ===========================
@@ -23,6 +24,7 @@ cp ./scripts/*.sh /bin/
 echo done
 echo ===========================
 echo Marking the scripts executable
+sleep 1
 chmod +x /bin/blaine.sh
 chmod +x /bin/disableonboot.sh
 chmod +x /bin/probehunt.sh
@@ -32,9 +34,12 @@ chmod +x /bin/stopdtm.sh
 chmod +x /bin/zeroize.sh
 chmod +x /bin/clearlog.sh
 chmod +x /bin/airodump.sh
+echo 
 echo done
 echo ===========================
 echo Creating crontab for automove
+sleep 1
+echo
 (crontab -l ; echo "@reboot /bin/blaine.sh") | crontab -
 echo done
 echo ===========================
