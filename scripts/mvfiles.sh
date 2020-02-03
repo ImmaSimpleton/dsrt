@@ -1,5 +1,4 @@
 #!/bin/bash
-# This script is named after Blaine Rodda, who gave me the idea of the concept. 
 # Executing this will assign a vairable based on the number of files in the "morefiles" folder.
 # After assigning the variable, it will move the file from the DONOTDELETE and rename it.
 
