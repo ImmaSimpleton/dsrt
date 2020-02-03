@@ -1,0 +1,8 @@
+This install is made to be used specifically with Kali image "kali-linux-2019.4(OR 3a)-rpi3-nexmon.img.xz". 
+I cannot guaratee it will work on any other OS or distro. 
+If you do not have the USB with the image on it, you can download it with this link. 
+"https://images.offensive-security.com/arm-images/kali-linux-2019.4-rpi3-nexmon.img.xz" 
+
+To use this installer, put the "install" folder on your Desktop, and run the "install.sh" script.
+
+report any bugs to sinistergoat@pm.me 

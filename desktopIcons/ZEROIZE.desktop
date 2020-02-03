@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ZEROIZE
+Comment=KILLS DEVICE
+Exec=zeroize.sh
+Icon=/root/Downloads/images.png
+Path=
+Terminal=true
+StartupNotify=true
