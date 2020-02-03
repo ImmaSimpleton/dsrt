@@ -1,3 +1,0 @@
-The scripts in this directory should go into /bin/. They should be executable.
-The blaine.sh script should go into crontab -e for reboot.
-The install.sh script should do this for you. 

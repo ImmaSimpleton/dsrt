@@ -1,9 +1,0 @@
-[Unit]
-Description=Makes probequest start on boot
-After=network.target kismet.service
-
-[Service]
-ExecStart=/bin/probehunt.sh
-
-[Install]
-WantedBy=multi-user.target

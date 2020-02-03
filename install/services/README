@@ -1,2 +1,0 @@
-kismet.service goes into lib/systemd/system.
-The install.sh script should do this for you.
