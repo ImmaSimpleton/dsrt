@@ -9,3 +9,4 @@ echo Starting Network Manager
 echo ==========================
 systemctl start NetworkManager
 echo Done.
+sleep 3
