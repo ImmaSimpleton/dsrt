@@ -34,3 +34,4 @@ echo Airodump files removed
 echo ==========================
 rm -rf ~/.local/share/Trash/*
 echo All log files removed... Done
+sleep 7
