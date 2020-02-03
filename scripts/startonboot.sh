@@ -9,4 +9,4 @@ systemctl enable kismet
 systemctl enable probequest
 systemctl enable airodump
 echo Done.
-wait 3
+sleep 3
