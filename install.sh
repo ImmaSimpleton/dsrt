@@ -83,7 +83,7 @@ echo ===========================
 echo Configuring gpsd
 #Replacing the old copy config way with a stream editor config
 #cp -f ./programs/gpsd/gpsd /etc/default/gpsd
-sed -i 's|DEVICES=""|DEVICES="dev/ttyUSB0|g' /etc/default/gpsd
+sed -i 's|DEVICES=""|DEVICES="dev/ttyUSB0"|g' /etc/default/gpsd
 echo done
 echo ===========================
 #enabling services
