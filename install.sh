@@ -105,3 +105,4 @@ mkdir -p ~/Desktop/DSRT/kismet/MoreFiles
 mkdir -p ~/Desktop/DSRT/probequest/DONOTDELETE
 mkdir -p ~/Desktop/DSRT/probequest/LastFile
 mkdir -p ~/Desktop/DSRT/probequest/MoreFiles
+rm -r dsrt/
