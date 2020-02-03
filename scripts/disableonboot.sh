@@ -9,4 +9,4 @@ echo Enabling Network Manger
 echo ===========================
 systemctl enable NetworkManager
 echo Done.
-wait 3
+sleep 3
