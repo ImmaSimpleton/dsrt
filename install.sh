@@ -29,6 +29,10 @@ echo ===========================
 echo Installing Zenity
 apt install zenity -y
 
+#Installing python log libraries
+echo Installing python libraries
+apt install python3-pip -y && pip3 install kismetdb
+
 #Copying scripts to /bin/
 echo Installing scripts to /bin/
 cp ./scripts/*.sh /bin/
@@ -102,19 +106,7 @@ echo ===========================
 #Creating the directories for file storage
 echo Creating Directories
 mkdir -p ~/Desktop/DSRT/Kismet
+mkdir -p ~/Desktop/DSRT/Kismet/csv
+mkdir -p ~/Desktop/DSRT/Kismet/kml
 mkdir -p ~/Desktop/DSRT/Airodump
 mkdir -p ~/Desktop/DSRT/Probequest
-
-: << 'Commented Out'
-mkdir -p ~/Desktop/DSRT/airodump/DONOTDELETE
-mkdir -p ~/Desktop/DSRT/airodump/LastFile
-mkdir -p ~/Desktop/DSRT/airodump/MoreFiles
-mkdir -p ~/Desktop/DSRT/kismet/DONOTDELETE
-mkdir -p ~/Desktop/DSRT/kismet/LastFile
-mkdir -p ~/Desktop/DSRT/kismet/MoreFiles
-mkdir -p ~/Desktop/DSRT/probequest/DONOTDELETE
-mkdir -p ~/Desktop/DSRT/probequest/LastFile
-mkdir -p ~/Desktop/DSRT/probequest/MoreFiles
-rm -r dsrt/
-Commented Out
-

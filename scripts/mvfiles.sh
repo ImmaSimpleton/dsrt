@@ -2,57 +2,19 @@
 # Executing this will assign a vairable based on the number of files in the "morefiles" folder.
 # After assigning the variable, it will move the file from the DONOTDELETE and rename it.
 
-: << 'Commented out'
-mv /root/Desktop/DSRT/kismet/LastFile/*.kismet /root/Desktop/DSRT/kismet/DONOTDELETE/
-mv /root/Desktop/DSRT/kismet/LastFile/*.pcapng /root/Desktop/DSRT/kismet/DONOTDELETE/
-mv /root/Desktop/DSRT/probequest/LastFile/*.csv /root/Desktop/DSRT/probequest/DONOTDELETE/
-mv /root/Desktop/DSRT/airodump/LastFile/*.csv /root/Desktop/DSRT/airodump/DONOTDELETE/
-echo ============================
-echo Starting renaming process.
-echo ============================
-numbercsv=$( ls /root/Desktop/DSRT/probequest/MoreFiles/ | grep -c .csv )
-sleep 1
-echo probes done
-echo ============================
-numberkis=$( ls /root/Desktop/DSRT/kismet/MoreFiles/ | grep -c .kismet )
-sleep 1 
-echo .kismet done
-echo ============================
-numberpcap=$( ls /root/Desktop/DSRT/kismet/MoreFiles/ | grep -c .pcap ) 
-sleep 1
-echo .pcap done
-echo ============================
-numberair=$( ls /root/Desktop/DSRT/airodump/MoreFiles/ | grep -c .csv )
-sleep 1
-echo airodump done
-echo ============================
-echo variables assigned
-echo ============================
-sleep 1
-echo moving files
-echo ============================
-mv /root/Desktop/DSRT/probequest/DONOTDELETE/probes.csv /root/Desktop/DSRT/probequest/MoreFiles/$numbercsv'probes.csv'	
-mv /root/Desktop/DSRT/kismet/DONOTDELETE/*.kismet /root/Desktop/DSRT/kismet/MoreFiles/$numberkis'.kismet'
-mv /root/Desktop/DSRT/kismet/DONOTDELETE/*.pcapng /root/Desktop/DSRT/kismet/MoreFiles/$numberpcap'.pcapng'
-mv /root/Desktop/DSRT/airodump/DONOTDELETE/airodump-01.csv /root/Desktop/DSRT/airodump/MoreFiles/$numberair'airodump.csv'
-echo files moved.
-echo ============================
-echo deleting .kismet-journal files
-rm /root/Desktop/DSRT/kismet/LastFile/*.kismet-journal
-echo done.'
-Commented out
-
 # Calculate how many files are in the folder.
 
 kismet_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c .kismet)
-pcap_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c .pcap)
+pcapng_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c .pcapng)
+pcapppi_file = $( ls ~/Desktop/DSRT/Kismet/ | grep -c .pcapppi)
 airodump_files = $( ls ~/Desktop/DSRT/Airodump/ | grep -c .csv)
 probequest_files = $ ( ls ~/Desktop/DSRT/Probequest/ | grep -c .csv)
 
 # Calculate how many files need to be renamed.
 
 new_kismet_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c kismet.kismet)
-new_pcap_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c kismet.pcap)
+new_pcapng_files = $( ls ~/Desktop/DSRT/Kismet/ | grep -c kismet.pcapng)
+new_pcapppi_files = $( ls ~/Desktop/DSRT/Kismet/ grep -c kismet.pcapppi)
 new_airodump_files = $( ls ~/Desktop/DSRT/Airodump/ | grep -c airodump.csv)
 new_probequest_files = $( ls ~/Desktop/DSRT/Probequest/ | grep -c probes.csv)
 # Moving the files if needed
@@ -65,15 +27,23 @@ if [[ $kismet_files != 0 ]]; then
     fi
 fi
 
-# PCAP
+# PCAPNG
 cd ~/Desktop/DSRT/Kismet/ 
-if [[ $pcap_files != 0 ]]; then
-    if [[ $new_pcap_files != 0 ]]; then
-        mv kismet.pcap $pcap_files.pcap
+if [[ $pcapng_files != 0 ]]; then
+    if [[ $new_pcapng_files != 0 ]]; then
+        mv kismet.pcapng $pcapng_files.pcapng
     fi
 fi
 
-# Airodump
+#PCAPPPI
+cd ~/Desktop/DSRT/Kismet/                                                                                                               
+if [[ $pcapppi_files != 0 ]]; then                                         
+    if [[ $new_pcapppi_files != 0 ]]; then                                 
+        mv kismet.pcapppi $pcapppi_files.pcapng                                 
+    fi                                                                  
+fi
+
+ # Airodump
 cd ~/Desktop/DSRT/Airodump/
 if [[ $airodump_files != 0 ]]; then
     if [[ $new_airodump_files != 0 ]]; then
@@ -92,3 +62,21 @@ fi
 # Remove the kismet.journal file
 rm ~/Desktop/DSRT/Kismet/*.kismet-journal
 
+# Converting .kismet files into something more useful
+cd ~/Desktop/DSRT/Kismet/
+if [[ $new_kismet_files != 0 ]];then
+    #kml
+    kismetdb_to_kml --in $kismet_files.kismet --out $kismetfiles.kml 2> /dev/null
+    #wigle csv
+    kismetdb_to_wiglecsv --in $kismet_files.kismet --out $kismetfiles'wigle'.csv 2> /dev/null
+    #csv
+    kismet_log_to_csv --in $kismet_files.kismet --out $kismetfiles.csv 2> /dev/null
+fi
+
+# Cleaning up converted files
+
+cd ~/Desktop/DSRT/Kismet/
+if [[ $new_kismet_files != 0 ]]; then
+    mv *.csv /csv
+    mv *.kml /kml
+fi
