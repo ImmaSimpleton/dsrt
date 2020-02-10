@@ -27,23 +27,9 @@ echo Installing scripts to /bin/
 cp ./scripts/*.sh /bin/
 echo done
 echo ===========================
-#Making the scripts executable
-echo Marking the scripts executable
-sleep 1
-chmod +x /bin/mvfiles.sh
-chmod +x /bin/disableonboot.sh
-chmod +x /bin/probehunt.sh
-chmod +x /bin/startdtm.sh
-chmod +x /bin/startonboot.sh
-chmod +x /bin/stopdtm.sh
-chmod +x /bin/zeroize.sh
-chmod +x /bin/clearlog.sh
-chmod +x /bin/airodump.sh
-echo 
-echo done
-echo ===========================
 #Creating a crontab to move files in directories out of the way
-echo Creating crontab for automove
+#This has been replaced to be apart of a service to improve functionality
+#echo Creating crontab for automove
 sleep 1
 echo
 (crontab -l ; echo "@reboot /bin/mvfiles.sh") | crontab -
@@ -76,6 +62,7 @@ sed -i 's/# gps=gpsd/gps=gpsd/g' /etc/kismet/kismet.conf
 sed -i 's|log_prefix=./|log_prefix=/root/Desktop/DSRT/kismet/LastFile|g' /etc/kismet/kismet_logging.conf
 sed -i 's/log_types=kismet/log_types=kismet,pcapng/g' /etc/kismet/kismet_logging.conf
 sed -i 's|-%D-%t|-%D%T|g' /etc/kismet/kismet_logging.conf
+sed -i 's|log_template=%p/%n-%D-%t-%i.%l|log_template = kismet|g' /etc/kismet/kismet_logging.conf
 #cp -f ./programs/kismet/kismet_logging.conf /etc/kismet/
 echo done
 echo ===========================
@@ -96,6 +83,10 @@ echo done
 echo ===========================
 #Creating the directories for file storage
 echo Creating Directories
+mkdir -p ~/Desktop/DSRT/Kismet
+mkdir -p ~/Desktop/DSRT/Airodump
+mkdir -p ~/Desktop/DSRT/Probequest
+: << 'Commented Out'
 mkdir -p ~/Desktop/DSRT/airodump/DONOTDELETE
 mkdir -p ~/Desktop/DSRT/airodump/LastFile
 mkdir -p ~/Desktop/DSRT/airodump/MoreFiles
@@ -106,3 +97,5 @@ mkdir -p ~/Desktop/DSRT/probequest/DONOTDELETE
 mkdir -p ~/Desktop/DSRT/probequest/LastFile
 mkdir -p ~/Desktop/DSRT/probequest/MoreFiles
 rm -r dsrt/
+Commented Out
+
