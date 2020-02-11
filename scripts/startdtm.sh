@@ -5,7 +5,7 @@ echo ==========================
 systemctl stop NetworkManager
 echo Starting DTM services
 echo ==========================
-#mvfiles.sh
+mvfiles.sh
 systemctl start kismet
 systemctl start probequest
 systemctl start airodump

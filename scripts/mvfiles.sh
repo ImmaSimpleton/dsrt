@@ -73,6 +73,13 @@ if [[ $new_kismet_files != 0 ]];then
     kismet_log_to_csv --in $kismet_files.kismet --out $kismetfiles.csv 2> /dev/null
 fi
 
+# Removing the header column from the wigle csv
+
+cd ~/Desktop/DSRT/Kismet/
+if [[ $new_kismet_files != 0 ]]; then
+    sed -i '1d' *wigle.csv 2> /dev/null
+fi
+
 # Cleaning up converted files
 
 cd ~/Desktop/DSRT/Kismet/

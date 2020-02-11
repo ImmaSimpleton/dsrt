@@ -1,4 +1,3 @@
 #!/bin/bash
 
-#probequest -i wlan0mon -o /root/Desktop/DSRT/probequest/LastFile/probes.csv
 probequest -i wlan0mon -o /root/Desktop/DSRT/Probequest/probes.csv
