@@ -1,0 +1,13 @@
+# (FIXED) pip install in probequest, not kismetdb python librarys 
+# (FIXED) Put spaces and sleeps in installer to see where it is at.
+
+renaming is not working?
+kismet not starting
+renaming not working in airodump
+
+# (FIXED) Create zenity message for desktop items
+
+# (FIXED) purge logs not working
+
+add password config
+
