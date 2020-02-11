@@ -6,5 +6,5 @@ Comment=Disables DTM services on boot.
 Exec=disableonboot.sh
 Icon=list-remove
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true

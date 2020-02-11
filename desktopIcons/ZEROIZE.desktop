@@ -6,5 +6,5 @@ Comment=KILLS DEVICE
 Exec=zeroize.sh
 Icon=/root/Downloads/images.png
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true

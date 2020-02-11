@@ -6,5 +6,5 @@ Comment=Stops DTM Services
 Exec=stopdtm.sh
 Icon=process-stop
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true

@@ -6,5 +6,5 @@ Comment=Clears all data logs collected
 Exec=purgelog.sh
 Icon=edit-clear-all
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true

@@ -6,5 +6,5 @@ Comment=Starts all DTM Services
 Exec=startdtm.sh
 Icon=media-playback-start
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true

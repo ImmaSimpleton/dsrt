@@ -6,5 +6,5 @@ Comment=Enables DTM on Boot
 Exec=startonboot.sh
 Icon=system-restart-panel
 Path=
-Terminal=true
+Terminal=false
 StartupNotify=true
