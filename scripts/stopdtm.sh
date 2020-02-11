@@ -1,12 +1,10 @@
 #!/bin/bash
 #
-echo Stopping DTM services
-echo ==========================
+# This script will stop DTM services
 systemctl stop kismet
 systemctl stop probequest
 systemctl stop airodump
-echo Starting Network Manager
-echo ==========================
 systemctl start NetworkManager
-echo Done.
-sleep 3
+
+zenity --info --text "The DSRT's Digital Terrain Mapping services have been disabled."
+

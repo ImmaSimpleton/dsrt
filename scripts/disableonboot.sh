@@ -1,12 +1,11 @@
 #!/bin/bash
 #
-echo Disabling DTM services
-echo ===========================
+#Disables all DTM services and Enables NetworkManager
+
 systemctl disable kismet
 systemctl disable probequest
 systemctl disable airodump
-echo Enabling Network Manger
-echo ===========================
 systemctl enable NetworkManager
-echo Done.
-sleep 3
+
+zenity --info --text "The DSRT's Digital Terrain Mapping services has been turned off"
+

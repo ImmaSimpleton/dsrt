@@ -1,39 +1,13 @@
 #!/bin/bash
-
-echo Preparing to clear logs
+#
+# This script will delete all the logs on the DSRT
 cd /root/Desktop/DSRT/
-echo ==========================
-echo Starting...
-echo ==========================
-echo Removing Kismet files
-echo ==========================
 cd Kismet
-#rm LastFile/*
-#rm MoreFiles/*
-#rm DONOTDELETE/*
 rm ./* 2> /dev/null
-rm /csv/*
-rm /kml/*
+rm /csv/* 2> /dev/null
+rm /kml/* 2> /dev/null
 cd ../Probequest
-echo Kismet files removed
-echo ==========================
-echo Removing Probequest files
-echo ==========================
-#rm LastFile/*
-#rm MoreFiles/*
-#rm DONOTDELETE/*
-rm ./*
+rm ./* 2> /dev/null
 cd ../Airodump
-echo Probequest files removed
-echo ==========================
-echo Removing Airodump files
-echo ==========================
-#rm LastFile/*
-#rm MoreFiles/*
-#rm DONOTDELETE/*
-rm ./*
-echo Airodump files removed
-echo ==========================
+rm ./* 2> /dev/null
 rm -rf ~/.local/share/Trash/* 2> /dev/null
-echo All log files removed... Done
-sleep 7

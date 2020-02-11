@@ -1,12 +1,10 @@
 #!/bin/bash
 #
-echo Disabling Network Manager
-echo ===========================
+#This will start the DTM services on boot
 systemctl disable NetworkManager.service
-echo Enabling DTM services
-echo ===========================
 systemctl enable kismet
 systemctl enable probequest
 systemctl enable airodump
-echo Done.
-sleep 3
+
+zenity --info --text "The DSRT will start Digital Terrain Mapping on startup now."
+

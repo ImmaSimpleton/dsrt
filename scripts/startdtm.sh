@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-echo Stopping Network Mananger
-echo ==========================
+# This script will start the DTM Services
+
 systemctl stop NetworkManager
-echo Starting DTM services
-echo ==========================
 mvfiles.sh
 systemctl start kismet
 systemctl start probequest
 systemctl start airodump
-echo Done.
-sleep 3
+
+zenity --info --text "The DSRT's Digital Terrain Services are now running."
+
+
