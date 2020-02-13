@@ -101,13 +101,13 @@ echo
 echo Configuring Kismet
 
 #Modifying the conf file to specify wlan0 and to use gpsd from device. 
-sed -i 's/# source=wlan0 /source=wlan0/g' /etc/kismet/kismet.conf
+sed -i 's/# source=wlan0 /source=wlan0/' /etc/kismet/kismet.conf
 sed -i 's/# gps=gpsd/gps=gpsd/g' /etc/kismet/kismet.conf
 
 #Directing the log files to the appropriate spot and to spit out a pcap
 sed -i 's|log_prefix=./|log_prefix=/root/Desktop/DSRT/Kismet/|g' /etc/kismet/kismet_logging.conf
 sed -i 's/log_types=kismet/log_types=kismet,pcapng,pcapppi/g' /etc/kismet/kismet_logging.conf
-sed -i 's|log_template=%p/%n-%D-%t-%i.%l|log_template = kismet|g' /etc/kismet/kismet_logging.conf
+sed -i 's|log_template=%p/%n-%D-%t-%i.%l|log_template=kismet.%l|g' /etc/kismet/kismet_logging.conf
 echo ===========================
 sleep 3
 echo done 
