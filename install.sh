@@ -144,5 +144,15 @@ mkdir -p ~/Desktop/DSRT/Airodump
 mkdir -p ~/Desktop/DSRT/Probequest
 echo ==========================
 echo done
-sleep 10
+sleep 3
+echo
+
+#Prompt for user to change password
+echo Preparing to change password...
+sleep 3
+passwd root
+echo ==========================
+echo DSRT Installation done
+sleep 15
+
 
